@@ -1,0 +1,20 @@
+# Files
+.DS_Store
+*.doc
+*.docx
+*.jpg
+*.mp4
+*.pdf
+*.png
+*.ppt
+*.pptx
+*.rar
+*.xlsx
+*.zip
+*.*.un~
+*.epub
+*.mov
+
+# Folders
+TRINH BAY BAO CAO
+Documents/

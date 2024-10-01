@@ -1,0 +1,3 @@
+[submodule "TicketHub"]
+	path = TicketHub
+	url = git@github.com:anhkhoakz/TicketHub.git

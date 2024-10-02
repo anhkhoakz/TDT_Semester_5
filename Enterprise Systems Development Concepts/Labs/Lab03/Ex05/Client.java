@@ -32,7 +32,7 @@ public class Client {
                     if (stub.checkOutBook(bookTitle)) {
                         System.out.println("Book checked out successfully");
                     } else {
-                        System.out.println("Book could not be checked out");
+                        System.err.println("Book could not be checked out");
                     }
                     break;
                 case "return":
@@ -40,7 +40,7 @@ public class Client {
                     if (stub.returnBook(bookTitle)) {
                         System.out.println("Book returned successfully");
                     } else {
-                        System.out.println("Book could not be returned");
+                        System.err.println("Book could not be returned");
                     }
                     break;
                 default:

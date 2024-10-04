@@ -1,9 +1,9 @@
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonImpl extends UnicastRemoteObject implements PersonInterface {
+public class PersonImpl implements PersonInterface {
+
     private List<Person> persons;
 
     public PersonImpl(List<Person> persons) throws RemoteException {

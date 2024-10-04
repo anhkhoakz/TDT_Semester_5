@@ -42,7 +42,9 @@
 
 You will need to run the following commands in three separate command prompts/ terminal.
 
-### First Command
+### MacOS
+
+#### First Command
 
 ```bash
 
@@ -51,16 +53,32 @@ rmiregistry 1100 # start the registry with port 1100
 
 ```
 
-### Second Command
+#### Second Command
 
 ```bash
 java Server 1100 # start the server with port 1100
 ```
 
-### Third Command
+#### Third Command
 
 ```bash
 
 java Client localhost 1100 "ABC" # start the client with host localhost and port 1100 and input "ABC"
 
+```
+
+## Windows
+
+#### First Command
+
+```bash
+javac *.java # compile all the java files
+start rmiregistry 1100 # start the registry with port 1100
+java Server 1100 # start the server with port 1100
+```
+
+#### Second Command
+
+```bash
+java Client localhost 1100 "ABC" # start the client with host localhost and port 1100 and input "ABC"
 ```

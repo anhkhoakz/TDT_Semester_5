@@ -1,0 +1,118 @@
+import java.io.*;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+public class HotelClient {
+    private static final String STATUS_FILE = "status.csv";
+    private static final String ACCOUNT_FILE = "accountList.csv";
+
+    public static void main(String[] args) {
+        if (args.length < 2) {
+            System.out.println("Usage: java HotelClient <host> <port> [options]");
+            return;
+        }
+
+        String host = args[0];
+        int port = Integer.parseInt(args[1]);
+
+        try {
+            Registry registry = LocateRegistry.getRegistry(host, port);
+            RoomManager roomManager = (RoomManager) registry.lookup("RoomManager");
+
+            if (args.length == 2) {
+                System.out.println("Usage: java HotelClient <host> <port> [options]");
+            } else {
+                String option = args[2];
+                switch (option.toLowerCase()) {
+                    case "-login":
+                        if (args.length == 5) {
+                            boolean loggedIn = roomManager.logIn(args[3], args[4]);
+                            if (loggedIn) {
+                                saveLoginStatus(true);
+                                System.out.println("Login successful.");
+                            } else {
+                                System.out.println("Login failed.");
+                            }
+                        } else {
+                            System.out.println("Usage: java HotelClient <host> <port> -logIn <username> <password>");
+                        }
+                        break;
+                    case "-logout":
+                        if (isLoggedIn()) {
+                            roomManager.logOut();
+                            saveLoginStatus(false);
+                            System.out.println("Logged out successfully.");
+                        } else {
+                            System.out.println("You are not logged in.");
+                        }
+                        break;
+                    case "-list":
+                        if (isLoggedIn()) {
+                            roomManager.listRooms().forEach(System.out::println);
+                        } else {
+                            System.out.println("You must log in before performing this action.");
+                        }
+                        break;
+                    case "-book":
+                        if (isLoggedIn()) {
+                            if (args.length == 6) {
+                                boolean success = roomManager.bookRoom(Integer.parseInt(args[3]), args[4], args[5]);
+                                System.out.println(success ? "Room booked successfully." : "Booking failed.");
+                            } else {
+                                System.out.println(
+                                        "Usage: java HotelClient <host> <port> -book <room_type> <guest_name> <guest_ssn>");
+                            }
+                        } else {
+                            System.out.println("You must log in before performing this action.");
+                        }
+                        break;
+                    case "-guests":
+                        if (isLoggedIn() && isAdmin()) {
+                            roomManager.listGuests().forEach(System.out::println);
+                        } else {
+                            if (!isLoggedIn()) {
+                                System.out.println("You must log in before performing this action.");
+                            } else {
+                                System.out.println("You must be an admin to perform this action.");
+                            }
+                        }
+                        break;
+                    default:
+                        System.out.println("Unknown option: " + option);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void saveLoginStatus(boolean status) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(STATUS_FILE))) {
+            writer.write(Boolean.toString(status));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean isLoggedIn() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(STATUS_FILE))) {
+            return Boolean.parseBoolean(reader.readLine());
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    private static boolean isAdmin() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(ACCOUNT_FILE));
+            String role = reader.readLine().split(",")[2];
+            System.out.println(role);
+            reader.close();
+            return role.equals("admin");
+        } catch (IOException e) {
+            System.err.println("Error reading account file.");
+            return false;
+        }
+
+    }
+}

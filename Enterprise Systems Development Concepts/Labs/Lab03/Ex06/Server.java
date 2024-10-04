@@ -21,9 +21,8 @@ public class Server {
             PersonImpl obj = new PersonImpl(persons);
             PersonInterface skeleton = (PersonInterface) UnicastRemoteObject.exportObject(obj, port);
 
-            Registry registry = LocateRegistry.getRegistry(port);
-
-            registry.bind("PersonInterface", skeleton);
+            Registry registry = LocateRegistry.createRegistry(port);
+            registry.rebind("PersonInterface", skeleton);
 
             System.out.println("Server is ready");
         } catch (Exception e) {

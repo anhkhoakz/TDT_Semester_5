@@ -26,7 +26,9 @@ public class HotelClient {
                 switch (option.toLowerCase()) {
                     case "-login":
                         if (args.length == 5) {
-                            boolean loggedIn = roomManager.logIn(args[3], args[4]);
+                            String userName = args[3];
+                            String password = args[4];
+                            boolean loggedIn = roomManager.logIn(userName, password);
                             if (loggedIn) {
                                 saveLoginStatus(true);
                                 System.out.println("Login successful.");
@@ -86,18 +88,31 @@ public class HotelClient {
         }
     }
 
-    private static void saveLoginStatus(boolean status) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(STATUS_FILE))) {
-            writer.write(Boolean.toString(status));
+    private static void saveLoginStatus(String userName, String role, boolean status) {
+        try (BufferedWriter br = new BufferedWriter(new FileWriter(STATUS_FILE))) {
+            br.write(userName + "," + role + "," + Boolean.toString(status));
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private static boolean isLoggedIn() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(STATUS_FILE))) {
-            return Boolean.parseBoolean(reader.readLine());
+        String statusFilePath = "status.csv";
+        try (BufferedReader br = new BufferedReader(new FileReader(statusFilePath))) {
+            String line = br.readLine();
+            String[] data = line.split(",");
+            if (line == null && data.length != 3) {
+                String[] values = data;
+                return Boolean.parseBoolean(values[2]);
+            }
+            if (line != null && data.length == 3) {
+                String[] values = data;
+                return Boolean.parseBoolean(values[2]);
+            }
+            return false;
         } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
     }

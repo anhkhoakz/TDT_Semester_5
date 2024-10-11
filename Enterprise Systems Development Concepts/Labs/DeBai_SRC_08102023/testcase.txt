@@ -1,0 +1,106 @@
+51009001	Jerlene Jimmerson	male	2.58	Networking
+51009002	Laura Thaxton	male	3.57	Information System
+51009003	Shoshana Harrop	male	3.02	Networking
+51009004	Aileen Atherton	male	3.25	Computational Intelligent
+51009005	Kaitlin Cluck	female	4.93	Information System
+51009006	Ardella Moser	female	4.29	Networking
+51009007	Michaela Steffan	male	4.89	Networking
+51009008	Yuk Woodhouse	male	3.02	Information System
+51009009	Elease Engebretson	female	2.58	Computational Intelligent
+51009010	Dane Cardone	female	4.93	Networking
+51009011	Roxana Urbanek	female	2.79	Networking
+51009012	Verena Enoch	female	3.98	Networking
+51009013	Lorinda Clinard	female	4.03	Networking
+51009014	Sybil Kerns	female	4.97	Computational Intelligent
+51009015	Ramonita Golston	female	4.04	Computational Intelligent
+51009016	Alfred Norfleet	female	3.92	Computational Intelligent
+51009017	Gregorio Mees	female	3.18	Computational Intelligent
+51009018	Ardella Comes	female	3.08	Computational Intelligent
+51009019	Rochelle Arthurs	female	4.53	Information System
+51009020	Veda Strode	male	3.37	Networking
+51009021	Angelo Raulerson	female	3.83	Information System
+51009022	Lita Weissman	female	4.96	Computational Intelligent
+51009023	Sydney Kitson	female	2.52	Computational Intelligent
+51009024	Marilu Heflin	female	4.82	Computational Intelligent
+51009025	Palmira Salim	female	4.69	Networking
+51009026	Daine Henthorn	male	4.5	Computational Intelligent
+51009027	Ophelia Meehan	female	4.96	Computational Intelligent
+51009028	Tonie Copp	female	3.71	Computational Intelligent
+51009029	Charlena Danis	male	4.6	Networking
+51009030	Kattie Demott	female	3.41	Networking
+51009031	Maryellen Linson	male	3.2	Computational Intelligent
+51009032	Monroe Virgen	female	4.37	Computational Intelligent
+51009033	Monica Basler	male	3.57	Computational Intelligent
+51009034	Ernestina Gassert	male	2.91	Networking
+51009035	Ramona Gelman	female	3.83	Networking
+51009036	Elli Larkey	female	4.54	Computational Intelligent
+51009037	Pauletta Panos	female	4.82	Networking
+51009038	Theodore Southers	female	4.24	Networking
+51009039	Tyrell Loudermilk	male	3.55	Networking
+51009040	Anne Skalski	male	3.97	Information System
+51009041	Marya Auld	female	4.62	Computational Intelligent
+51009042	Clelia Paige	male	3.68	Computational Intelligent
+51009043	Arlie Norling	female	4.57	Computational Intelligent
+51009044	Elna Babin	female	3.68	Networking
+51009045	Delila Trapani	male	4.83	Information System
+51009046	Janiece Norcross	male	3.5	Networking
+51009047	Zena Eustice	male	4.25	Computational Intelligent
+51009048	Martha Entwistle	male	3.26	Computational Intelligent
+51009049	Marielle Snay	female	2.63	Networking
+51009050	Leena Breeze	male	3.09	Networking
+51009051	Lynwood Mathes	female	3.56	Networking
+51009052	Oneida Hays	female	4.74	Networking
+51009053	Wendy Franzen	male	3.45	Computational Intelligent
+51009054	Jennifer Luc	female	3.66	Information System
+51009055	Charlene Munday	male	4	Networking
+51009056	Odell Grewell	female	2.58	Networking
+51009057	Lindsy Pugsley	male	4.34	Information System
+51009058	Dionna Voit	female	3.72	Computational Intelligent
+51009059	Lanette Knisley	male	2.67	Computational Intelligent
+51009060	Tilda Snyder	female	3.87	Networking
+51009061	Joyce Perro	female	3.97	Computational Intelligent
+51009062	Venice Pelchat	female	4.38	Computational Intelligent
+51009063	Jerilyn Rehkop	female	4.27	Networking
+51009064	Verdell Hewitt	male	4.66	Computational Intelligent
+51009065	Emory Biederman	male	3.13	Networking
+51009066	Lena Buttram	female	4.17	Computational Intelligent
+51009067	Addie Hempstead	male	3.57	Networking
+51009068	Trudie Wirta	female	3.34	Networking
+51009069	Peggy Goines	male	2.67	Computational Intelligent
+51009070	Kirk Colpitts	female	3.35	Networking
+51009071	Dolly Mosser	female	4.15	Information System
+51009072	Alvin Albro	female	4.69	Networking
+51009073	Madalyn Sample	male	3.3	Computational Intelligent
+51009074	Rheba Lindsley	female	3.15	Networking
+51009075	Oscar Younan	female	2.55	Networking
+51009076	Dorthea Heacock	male	3.37	Computational Intelligent
+51009077	Delta Shima	female	4.6	Information System
+51009078	Cleora English	male	3.81	Networking
+51009079	Ilana Cowie	female	4.54	Networking
+51009080	Noriko Glass	female	3.49	Computational Intelligent
+51009081	Alanna Lewey	male	2.6	Networking
+51009082	Mignon Longworth	male	4.31	Networking
+51009083	Ute Printz	male	4.14	Information System
+51009084	Ryan Klos	female	4.68	Computational Intelligent
+51009085	Nelly Gourd	female	5	Networking
+51009086	Leeanne Brigman	female	2.92	Computational Intelligent
+51009087	Elda Brennan	male	3.79	Computational Intelligent
+51009088	Joline Valle	male	2.53	Networking
+51009089	Wally Whitsett	female	3.06	Computational Intelligent
+51009090	Anabel Karpinski	male	4.58	Networking
+51009091	Nigel Wininger	male	3.69	Computational Intelligent
+51009092	Celestina Scales	female	4.91	Networking
+51009093	Danyel Lanning	male	4.74	Computational Intelligent
+51009094	Corliss Klimek	female	3.66	Networking
+51009095	Meagan Ravelo	female	2.6	Networking
+51009096	Gussie Grizzard	male	3.76	Networking
+51009097	Paulita Pharis	male	3.88	Networking
+51009098	Kathaleen Bray	female	4.77	Networking
+51009099	Leonel Bien	male	3.97	Networking
+51009100	Gilberto Leftwich	male	4.24	Networking
+51009101	Emily Whitsett	female	4.06	Networking
+51009102	John Karpinski	male	3.85	Networking
+51009103	Kevin Wininger	male	2.96	Networking
+51009104	Cathy F. Scales	female	1.09	Computational Intelligent
+51009105	Daniel Lanning	male	3.74	Networking
+51009104	Joanna W. Scales	female	2.49	Computational Intelligent

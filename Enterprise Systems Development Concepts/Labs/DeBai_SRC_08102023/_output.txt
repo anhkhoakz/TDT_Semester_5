@@ -1,0 +1,64 @@
+106
+46
+12
+63
+Student{id=51009057, name=Lindsy Pugsley, gender=male, major=Information System, gpa=4.34}
+Student{id=51009070, name=Kirk Colpitts, gender=female, major=Networking, gpa=3.35}
+41
+63
+Student{id=51009007, name=Michaela Steffan, gender=male, major=Networking, gpa=4.89}
+Student{id=51009006, name=Ardella Moser, gender=female, major=Networking, gpa=4.29}
+Student{id=51009092, name=Celestina Scales, gender=female, major=Networking, gpa=4.91}
+Student{id=51009005, name=Kaitlin Cluck, gender=female, major=Information System, gpa=4.93}
+Student{id=51009008, name=Yuk Woodhouse, gender=male, major=Information System, gpa=3.02}
+3.79
+Student{id=51009085, name=Nelly Gourd, gender=female, major=Networking, gpa=5.0}
+Student{id=51009014, name=Sybil Kerns, gender=female, major=Computational Intelligent, gpa=4.97}
+Student{id=51009022, name=Lita Weissman, gender=female, major=Computational Intelligent, gpa=4.96}
+Student{id=51009027, name=Ophelia Meehan, gender=female, major=Computational Intelligent, gpa=4.96}
+Student{id=51009005, name=Kaitlin Cluck, gender=female, major=Information System, gpa=4.93}
+Student{id=51009010, name=Dane Cardone, gender=female, major=Networking, gpa=4.93}
+Student{id=51009092, name=Celestina Scales, gender=female, major=Networking, gpa=4.91}
+Student{id=51009007, name=Michaela Steffan, gender=male, major=Networking, gpa=4.89}
+Student{id=51009045, name=Delila Trapani, gender=male, major=Information System, gpa=4.83}
+Student{id=51009024, name=Marilu Heflin, gender=female, major=Computational Intelligent, gpa=4.82}
+Student{id=51009007, name=Michaela Steffan, gender=male, major=Networking, gpa=4.89}
+Student{id=51009045, name=Delila Trapani, gender=male, major=Information System, gpa=4.83}
+Student{id=51009093, name=Danyel Lanning, gender=male, major=Computational Intelligent, gpa=4.74}
+Student{id=51009064, name=Verdell Hewitt, gender=male, major=Computational Intelligent, gpa=4.66}
+Student{id=51009029, name=Charlena Danis, gender=male, major=Networking, gpa=4.6}
+Student{id=51009090, name=Anabel Karpinski, gender=male, major=Networking, gpa=4.58}
+Student{id=51009026, name=Daine Henthorn, gender=male, major=Computational Intelligent, gpa=4.5}
+Student{id=51009057, name=Lindsy Pugsley, gender=male, major=Information System, gpa=4.34}
+Student{id=51009082, name=Mignon Longworth, gender=male, major=Networking, gpa=4.31}
+Student{id=51009047, name=Zena Eustice, gender=male, major=Computational Intelligent, gpa=4.25}
+Student{id=51009005, name=Kaitlin Cluck, gender=female, major=Information System, gpa=4.93}
+Student{id=51009045, name=Delila Trapani, gender=male, major=Information System, gpa=4.83}
+Student{id=51009077, name=Delta Shima, gender=female, major=Information System, gpa=4.6}
+Student{id=51009019, name=Rochelle Arthurs, gender=female, major=Information System, gpa=4.53}
+Student{id=51009057, name=Lindsy Pugsley, gender=male, major=Information System, gpa=4.34}
+Student{id=51009071, name=Dolly Mosser, gender=female, major=Information System, gpa=4.15}
+Student{id=51009083, name=Ute Printz, gender=male, major=Information System, gpa=4.14}
+Student{id=51009040, name=Anne Skalski, gender=male, major=Information System, gpa=3.97}
+Student{id=51009021, name=Angelo Raulerson, gender=female, major=Information System, gpa=3.83}
+Student{id=51009054, name=Jennifer Luc, gender=female, major=Information System, gpa=3.66}
+Student{id=51009104, name=Cathy F. Scales, gender=female, major=Computational Intelligent, gpa=1.09}
+Student{id=51009104, name=Joanna W. Scales, gender=female, major=Computational Intelligent, gpa=2.49}
+Student{id=51009023, name=Sydney Kitson, gender=female, major=Computational Intelligent, gpa=2.52}
+Student{id=51009075, name=Oscar Younan, gender=female, major=Networking, gpa=2.55}
+Student{id=51009009, name=Elease Engebretson, gender=female, major=Computational Intelligent, gpa=2.58}
+Student{id=51009056, name=Odell Grewell, gender=female, major=Networking, gpa=2.58}
+Student{id=51009095, name=Meagan Ravelo, gender=female, major=Networking, gpa=2.6}
+Student{id=51009049, name=Marielle Snay, gender=female, major=Networking, gpa=2.63}
+Student{id=51009011, name=Roxana Urbanek, gender=female, major=Networking, gpa=2.79}
+Student{id=51009086, name=Leeanne Brigman, gender=female, major=Computational Intelligent, gpa=2.92}
+Student{id=51009104, name=Cathy F. Scales, gender=female, major=Computational Intelligent, gpa=1.09}
+Student{id=51009104, name=Joanna W. Scales, gender=female, major=Computational Intelligent, gpa=2.49}
+Student{id=51009023, name=Sydney Kitson, gender=female, major=Computational Intelligent, gpa=2.52}
+Student{id=51009009, name=Elease Engebretson, gender=female, major=Computational Intelligent, gpa=2.58}
+Student{id=51009059, name=Lanette Knisley, gender=male, major=Computational Intelligent, gpa=2.67}
+Student{id=51009069, name=Peggy Goines, gender=male, major=Computational Intelligent, gpa=2.67}
+Student{id=51009086, name=Leeanne Brigman, gender=female, major=Computational Intelligent, gpa=2.92}
+Student{id=51009089, name=Wally Whitsett, gender=female, major=Computational Intelligent, gpa=3.06}
+Student{id=51009018, name=Ardella Comes, gender=female, major=Computational Intelligent, gpa=3.08}
+Student{id=51009017, name=Gregorio Mees, gender=female, major=Computational Intelligent, gpa=3.18}

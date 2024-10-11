@@ -1,3 +1,6 @@
 [submodule "TicketHub"]
 	path = TicketHub
 	url = git@github.com:anhkhoakz/TicketHub.git
+[submodule "dotNet Technology/Store-Management"]
+	path = dotNet Technology/Store-Management
+	url = git@github.com:anhkhoakz/Store-Management.git

@@ -3,8 +3,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class HotelClient {
-    private static final String STATUS_FILE = "status.csv";
-    private static final String ACCOUNT_FILE = "accountList.csv";
+    private static final String ACCOUNT_FILE = "status.csv";
 
     public static void main(String[] args) {
         if (args.length < 2) {
@@ -30,7 +29,6 @@ public class HotelClient {
                             String password = args[4];
                             boolean loggedIn = roomManager.logIn(userName, password);
                             if (loggedIn) {
-                                saveLoginStatus(true);
                                 System.out.println("Login successful.");
                             } else {
                                 System.out.println("Login failed.");
@@ -42,7 +40,6 @@ public class HotelClient {
                     case "-logout":
                         if (isLoggedIn()) {
                             roomManager.logOut();
-                            saveLoginStatus(false);
                             System.out.println("Logged out successfully.");
                         } else {
                             System.out.println("You are not logged in.");
@@ -57,12 +54,19 @@ public class HotelClient {
                         break;
                     case "-book":
                         if (isLoggedIn()) {
+                            if (args.length == 5) {
+                                boolean success = roomManager.bookRoom(Integer.parseInt(args[3]), args[4], null);
+                                System.out.println(success ? "Room booked successfully." : "Booking failed.");
+                                return;
+                            }
                             if (args.length == 6) {
                                 boolean success = roomManager.bookRoom(Integer.parseInt(args[3]), args[4], args[5]);
                                 System.out.println(success ? "Room booked successfully." : "Booking failed.");
+                                return;
                             } else {
                                 System.out.println(
                                         "Usage: java HotelClient <host> <port> -book <room_type> <guest_name> <guest_ssn>");
+                                return;
                             }
                         } else {
                             System.out.println("You must log in before performing this action.");
@@ -70,6 +74,7 @@ public class HotelClient {
                         break;
                     case "-guests":
                         if (isLoggedIn() && isAdmin()) {
+                            System.out.println("Guests:");
                             roomManager.listGuests().forEach(System.out::println);
                         } else {
                             if (!isLoggedIn()) {
@@ -88,23 +93,13 @@ public class HotelClient {
         }
     }
 
-    private static void saveLoginStatus(String userName, String role, boolean status) {
-        try (BufferedWriter br = new BufferedWriter(new FileWriter(STATUS_FILE))) {
-            br.write(userName + "," + role + "," + Boolean.toString(status));
-            br.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private static boolean isLoggedIn() {
         String statusFilePath = "status.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(statusFilePath))) {
             String line = br.readLine();
             String[] data = line.split(",");
-            if (line == null && data.length != 3) {
-                String[] values = data;
-                return Boolean.parseBoolean(values[2]);
+            if (line == null || data.length != 3) {
+                return false;
             }
             if (line != null && data.length == 3) {
                 String[] values = data;
@@ -120,8 +115,7 @@ public class HotelClient {
     private static boolean isAdmin() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(ACCOUNT_FILE));
-            String role = reader.readLine().split(",")[2];
-            System.out.println(role);
+            String role = reader.readLine().split(",")[1];
             reader.close();
             return role.equals("admin");
         } catch (IOException e) {

@@ -3,9 +3,24 @@ const router = express.Router();
 require("dotenv").config();
 
 const products = [
-    { id: 1, name: "iPhone 12 Pro Max", price: 15000000 },
-    { id: 2, name: "iPhone 13 Pro Max", price: 20000000 },
-    { id: 3, name: "iPhone 14 Pro Max", price: 25000000 },
+    {
+        id: 1,
+        name: "iPhone 14",
+        price: 599,
+        image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-14-model-unselect-gallery-1-202209?wid=5120&hei=2880",
+    },
+    {
+        id: 2,
+        name: "iPhone 15",
+        price: 699,
+        image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-model-unselect-gallery-1-202309?wid=5120&hei=2880",
+    },
+    {
+        id: 3,
+        name: "iPhone 16",
+        price: 799,
+        image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-model-unselect-gallery-1-202409?wid=5120&hei=2880",
+    },
 ];
 
 router.get("/", (req, res, next) => {
@@ -19,7 +34,7 @@ router.get("/:id", (req, res, next) => {
     if (!product) {
         return res.status(404).json({ message: "Product not found" });
     }
-    return res.status(200).json(product);
+    return res.status(200).render("product", { product });
 });
 
 router.put("/:id", async (req, res, next) => {

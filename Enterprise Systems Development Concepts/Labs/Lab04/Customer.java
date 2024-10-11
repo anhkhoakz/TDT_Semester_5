@@ -18,6 +18,9 @@ public class Customer {
     }
 
     public String getSsn() {
+        if (ssn == null) {
+            return "N/A";
+        }
         return ssn;
     }
 

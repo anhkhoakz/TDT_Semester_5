@@ -6,42 +6,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
             rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+            integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
         />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
 
     <body>
         <div class="container my-3">
             <h4>Đăng nhập</h4>
+
             <form action="/login" method="post">
-                <div class="form-group">
-                    <label for="email">Email:</label>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
                     <input
                         type="email"
                         class="form-control"
-                        id="email"
-                        placeholder="Nhập email"
                         name="email"
+                        id="email"
+                        placeholder="abc@mail.com"
                     />
                 </div>
-                <div class="form-group">
-                    <label for="pwd">Mật khẩu:</label>
+
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Mật khẩu</label>
                     <input
                         type="password"
                         class="form-control"
+                        name="pwd"
                         id="pwd"
                         placeholder="Nhập password"
-                        name="password"
                     />
                 </div>
+
                 <% if (typeof message !== 'undefined') { %>
-                <div class="alert alert-danger">
-                    <p><%= message %></p>
+                <div class="alert alert-danger" role="alert">
+                    <%= message %>
                 </div>
                 <% } %>
+
                 <button type="submit" class="btn btn-success">Đăng nhập</button>
             </form>
         </div>

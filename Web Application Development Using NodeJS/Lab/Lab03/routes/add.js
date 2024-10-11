@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
+const upload = require("../middlewares/imageUploader");
 
 require("dotenv").config();
 
@@ -10,9 +10,13 @@ router.get("/", async (req, res, next) => {
     res.render("add");
 });
 
-router.post("/", async (req, res) => {
+router.post("/", upload.single("image"), (req, res) => {
+    console.log(req.file);
     console.log(req.body);
-    res.send(req.body);
+    res.send({
+        file: req.file,
+        body: req.body,
+    });
 });
 
 router.get("/:id", async (req, res, next) => {

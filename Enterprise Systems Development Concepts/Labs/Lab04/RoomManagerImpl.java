@@ -2,7 +2,9 @@ import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 import java.util.*;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager {
@@ -10,6 +12,8 @@ public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager 
     private List<Customer> customers;
     private Map<String, User> users;
     private User currentUser;
+
+    private static String STATUS_FILE = "status.csv";
 
     public RoomManagerImpl() throws RemoteException {
         rooms = new HashMap<>();
@@ -44,6 +48,7 @@ public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager 
         User user = users.get(username);
         if (user != null && user.getPassword().equals(password)) {
             currentUser = user;
+            saveLoginStatus(username, user.getRole(), true);
             return true;
         }
         return false;
@@ -52,10 +57,14 @@ public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager 
     @Override
     public void logOut() throws RemoteException {
         currentUser = null;
+        saveLoginStatus("", "", false);
     }
 
     @Override
     public List<String> listRooms() throws RemoteException {
+        if (currentUser == null) {
+            return Collections.emptyList();
+        }
         List<String> roomList = new ArrayList<>();
         for (Room room : rooms.values()) {
             roomList.add(room.getAvailability() + " rooms of type " + room.getRoomType() + " are available for "
@@ -66,6 +75,9 @@ public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager 
 
     @Override
     public boolean bookRoom(int roomType, String guestName, String guestSSN) throws RemoteException {
+        if (currentUser == null) {
+            return false;
+        }
         Room room = rooms.get(roomType);
         if (room != null && room.getAvailability() > 0) {
             room.setAvailability(room.getAvailability() - 1);
@@ -77,14 +89,23 @@ public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager 
 
     @Override
     public List<String> listGuests() throws RemoteException {
-        if (currentUser != null && "manager".equals(currentUser.getRole())) {
-            List<String> guestList = new ArrayList<>();
-            for (Customer customer : customers) {
-                guestList.add("Guest: " + customer.getName() + ", SSN: " + customer.getSsn() + ", Room Type: "
-                        + customer.getRoomType());
-            }
-            return guestList;
+        if (currentUser == null || !currentUser.getRole().equals("admin")) {
+            return Collections.emptyList();
         }
-        return Collections.emptyList();
+        List<String> guestList = new ArrayList<>();
+        for (Customer customer : customers) {
+            guestList.add("Guest: " + customer.getName() + ", SSN: " + customer.getSsn() + ", Room Type: "
+                    + customer.getRoomType());
+        }
+        return guestList;
+    }
+
+    private static void saveLoginStatus(String userName, String role, boolean status) {
+        try (BufferedWriter br = new BufferedWriter(new FileWriter(STATUS_FILE))) {
+            br.write(userName + "," + role + "," + Boolean.toString(status));
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

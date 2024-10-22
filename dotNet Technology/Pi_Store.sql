@@ -1,68 +1,64 @@
-USE MASTER;
+USE MASTER
 
 GO
 
-CREATE DATABASE PI_STORE;
+CREATE DATABASE PI_STORE
 
 GO
 
 -- -- Set the database to single-user mode, which forces disconnections
--- ALTER DATABASE PI_STORE SET SINGLE_USER WITH ROLLBACK IMMEDIATE; USE MASTER; DROP DATABASE PI_STORE;
+-- ALTER DATABASE PI_STORE SET SINGLE_USER WITH ROLLBACK IMMEDIATE; USE MASTER DROP DATABASE PI_STORE;
 
 -- -- Drop the database
--- USE MASTER; DROP DATABASE PI_STORE;
+-- USE MASTER DROP DATABASE PI_STORE;
 
-USE PI_STORE;
+USE PI_STORE
 
 GO
 
 -- Create Employee table
 CREATE TABLE Employee
 (
-    ID VARCHAR(50) PRIMARY KEY,
-    Password VARCHAR(50),
-    Role VARCHAR(50) DEFAULT 'Cashier',
-    Name NVARCHAR(100),
-    Email VARCHAR(100),
-    Phone VARCHAR(15) UNIQUE,
-    Address VARCHAR(255),
-    Salary DECIMAL(18, 2),
-    HireDate DATE DEFAULT GETDATE(),
-    Status VARCHAR(50)
+    ID NVARCHAR(MAX) PRIMARY KEY IDENTITY(1, 1),
+    Password NVARCHAR(100) NOT NULL,
+    Role NVARCHAR(10) NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    Phone NVARCHAR(15) NOT NULL UNIQUE,
+    Address NVARCHAR(255) NOT NULL,
+    Salary DECIMAL(18, 2) NOT NULL,
+    HireDate DATE NOT NULL,
+    Status NVARCHAR(10) NOT NULL
 );
 
 -- Create Client table
 CREATE TABLE Client
 (
-    ID VARCHAR(50) PRIMARY KEY,
-    Name NVARCHAR(100),
-    Email VARCHAR(100),
-    Phone VARCHAR(15) UNIQUE,
-    Address VARCHAR(255)
+    ID NVARCHAR(6) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    Phone NVARCHAR(15) NOT NULL,
+    Address NVARCHAR(255) NOT NULL
 );
 
 -- Create Product table
 CREATE TABLE Product
 (
-    ID VARCHAR(50) PRIMARY KEY,
-    Name NVARCHAR(100),
-    Type NVARCHAR(50),
-    -- Description NVARCHAR(255),
-    Stock INT DEFAULT 0,
-    Price DECIMAL(18, 2),
-    Status VARCHAR(50),
-    Image VARCHAR(255),
-    AddedDate DATE DEFAULT GETDATE()
+    ID NVARCHAR(8) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(255),
+    Price DECIMAL(18, 2) NOT NULL,
+    Quantity INT NOT NULL
 );
 
 -- Create Order table
 CREATE TABLE [Order]
 (
-    ID VARCHAR(50) PRIMARY KEY,
-    ClientID VARCHAR(50),
-    EmployeeID VARCHAR(50),
-    OrderDate DATE DEFAULT GETDATE(),
-    TotalPrice DECIMAL(18, 2),
+    ID NVARCHAR(8) PRIMARY KEY,
+    ClientID NVARCHAR(6) NOT NULL,
+    EmployeeID NVARCHAR(5) NOT NULL,
+    OrderDate DATE NOT NULL,
+    TotalPrice DECIMAL(18, 2) NOT NULL,
     FOREIGN KEY (ClientID) REFERENCES Client(ID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
 );
@@ -70,10 +66,10 @@ CREATE TABLE [Order]
 -- Create OrderItem table
 CREATE TABLE OrderItem
 (
-    ID VARCHAR(50) PRIMARY KEY,
-    OrderID VARCHAR(50),
-    ProductID VARCHAR(50),
-    Quantity INT,
+    ID NVARCHAR(8) PRIMARY KEY ,
+    OrderID NVARCHAR(8) NOT NULL,
+    ProductID NVARCHAR(8) NOT NULL,
+    Quantity INT NOT NULL,
     FOREIGN KEY (OrderID) REFERENCES [Order](ID),
     FOREIGN KEY (ProductID) REFERENCES Product(ID)
 );
@@ -81,25 +77,20 @@ CREATE TABLE OrderItem
 -- Create Bill table
 CREATE TABLE Bill
 (
-    ID VARCHAR(50) PRIMARY KEY,
-    OrderID VARCHAR(50),
-    ClientID VARCHAR(50),
-    EmployeeID VARCHAR(50),
-    BillDate DATE DEFAULT GETDATE(),
-    TotalPrice DECIMAL(18, 2),
+    ID NVARCHAR(8) PRIMARY KEY,
+    OrderID NVARCHAR(8) NOT NULL,
+    ClientID NVARCHAR(6) NOT NULL,
+    EmployeeID NVARCHAR(5) NOT NULL,
+    BillDate DATE NOT NULL,
+    TotalPrice DECIMAL(18, 2) NOT NULL,
     FOREIGN KEY (OrderID) REFERENCES [Order](ID),
     FOREIGN KEY (ClientID) REFERENCES Client(ID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
 );
 
+
 -- Insert data into Employee table
 INSERT INTO Employee
 VALUES
-    ('E001', '123456', 'admin', 'Nancy Cain', 'joshuafields@hotmail.com', '079123456', '1234 Elm Street', 10000000, '2023-01-01', 'Active');
+    ('E001', '123456', 'admin', 'John Doe', 'joshuafields@hotmail.com' , '1234567890', '1234 Elm Street', 50000.00, '2020-01-01', 'Active');
 
-INSERT INTO Employee
-VALUES
-    ('admin', 'admin', 'admin', 'April Arellano', 'admin@hotmail.com', '079123123', '1234 Elm Street', 1000000, '2024-01-01', 'Active');
-
-SELECT *
-FROM Employee;

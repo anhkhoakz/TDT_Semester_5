@@ -1,33 +1,67 @@
 const express = require("express");
 const router = express.Router();
+const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
+const upload = require("../middlewares/imageUploader");
+const fs = require("fs");
 require("dotenv").config();
 
-const products = [
-    {
-        id: 1,
-        name: "iPhone 14",
-        price: 599,
-        image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-14-model-unselect-gallery-1-202209?wid=5120&hei=2880",
-    },
-    {
-        id: 2,
-        name: "iPhone 15",
-        price: 699,
-        image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-model-unselect-gallery-1-202309?wid=5120&hei=2880",
-    },
-    {
-        id: 3,
-        name: "iPhone 16",
-        price: 799,
-        image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-model-unselect-gallery-1-202409?wid=5120&hei=2880",
-    },
-];
+router.use(express.urlencoded({ extended: false }));
 
-router.get("/", (req, res, next) => {
+const PRODUCT_FILE = "public/database/products.json";
+
+const fetchProducts = async () => {
+    const products = JSON.parse(fs.readFileSync(PRODUCT_FILE, "utf8"));
+    return products;
+};
+
+router.get("/", async (req, res, next) => {
+    const products = await fetchProducts();
     return res.status(200).json(products);
 });
 
-router.get("/:id", (req, res, next) => {
+// router.post("/", jsonParser, (req, res, next) => {
+//     const { id, name, price, image } = req.body;
+
+//     if (!id || !name || !price) {
+//         return res.status(400).json({ message: "Insufficient data" });
+//     }
+
+//     const newProduct = {
+//         id: products.length + 1,
+//         name,
+//         price,
+//     };
+
+//     products.push(newProduct);
+
+//     return res.status(201).json(newProduct);
+// });
+
+router.get("/add", async (req, res, next) => {
+    res.render("add");
+});
+
+router.post("/add", upload.single("image"), async (req, res) => {
+    const products = await fetchProducts();
+    const ImagePath = "/images/" + req.file.filename;
+
+    products.push({
+        id: products.length + 1,
+        name: req.body.name,
+        price: req.body.price,
+        image: ImagePath,
+    });
+
+    // add data to products.json
+
+    fs.writeFileSync(PRODUCT_FILE, JSON.stringify(products, null, 4), "utf8");
+
+    res.redirect("/");
+});
+
+router.get("/:id", async (req, res, next) => {
+    const products = await fetchProducts();
     const product = products.find(
         (product) => product.id === Number(req.params.id)
     );

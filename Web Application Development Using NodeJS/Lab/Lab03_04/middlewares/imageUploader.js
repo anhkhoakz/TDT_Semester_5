@@ -1,11 +1,11 @@
-const express = require("express");
 const multer = require("multer");
-const fs = require("fs");
 const path = require("path");
+
+let imagePath = "";
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "public/images/uploads");
+        cb(null, "public/images");
     },
     filename: (req, file, cb) => {
         const originalName = file.originalname;

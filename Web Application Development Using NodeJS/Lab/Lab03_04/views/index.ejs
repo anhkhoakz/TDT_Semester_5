@@ -4,20 +4,17 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Danh sách sản phẩm</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-            integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+        <%- include('partials/bootStrapCSS.ejs') %>
     </head>
 
     <body>
         <div class="container my-3">
             <h4 class="text-primary">Danh sách sản phẩm</h4>
-            <a class="btn btn-success btn-sm my-2" href="/add">Thêm sản phẩm</a>
+            <a class="btn btn-success btn-sm my-2" href="/products/add"
+                >Thêm sản phẩm</a
+            >
             <p>Chọn một sản phẩm cụ thể để xem chi tiết</p>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -37,10 +34,18 @@
                                     <%= product.name %>
                                 </a>
                             </td>
-                            <td><%= product.price %></td>
+                            <td><%= product.price %>$</td>
                             <td>
-                                <a href="/products/add">Chỉnh sửa</a> |
-                                <a href="#">Xóa</a>
+                                <a href="#">Chỉnh sửa</a> |
+                                <a
+                                    href=""
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteConfirmModal"
+                                    data-product-id="<%= product.id %>"
+                                    data-product-name="<%= product.name %>"
+                                >
+                                    Xóa
+                                </a>
                             </td>
                         </tr>
                         <% }); %>
@@ -48,5 +53,15 @@
                 </table>
             </div>
         </div>
+
+        <%- include('modals/deleteModal.ejs') %>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+
+        <script src="/javascripts/deleteModal.js"></script>
     </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <%- include('partials/bootstrap.css.ejs') %>
+        <link rel="stylesheet" href="/stylesheets/error.css" />
+        <title><%= error.status %> <%= message %></title>
+    </head>
+    <body>
+        <div class="error-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="error-text">
+                            <h3 class="error"><%= error.status %></h3>
+                            <div class="im-sheep">
+                                <div class="top">
+                                    <div class="body"></div>
+                                    <div class="head">
+                                        <div class="im-eye one"></div>
+                                        <div class="im-eye two"></div>
+                                        <div class="im-ear one"></div>
+                                        <div class="im-ear two"></div>
+                                    </div>
+                                </div>
+                                <div class="im-legs">
+                                    <div class="im-leg"></div>
+                                    <div class="im-leg"></div>
+                                    <div class="im-leg"></div>
+                                    <div class="im-leg"></div>
+                                </div>
+                            </div>
+                            <h4><%= message %></h4>
+                            <pre><%= error.stack %></pre>
+                            <a href="/" class="btn btn-primary btn-round"
+                                >Quay lại trang chủ</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

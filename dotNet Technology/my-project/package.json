@@ -1,0 +1,13 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "My project",
+  "main": "src/BLL/BusinessLogic.cs",
+  "scripts": {
+    "start": "dotnet run"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "author": "Your Name",
+  "license": "MIT"
+}

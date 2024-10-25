@@ -1,0 +1,74 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "fullname": "John Doe",
+            "gender": "male",
+            "age": 28,
+            "email": "johndoe@example.com"
+        },
+        {
+            "id": 2,
+            "fullname": "Jane Smith",
+            "gender": "female",
+            "age": 34,
+            "email": "janesmith@example.com"
+        },
+        {
+            "id": 3,
+            "fullname": "Michael Johnson",
+            "gender": "male",
+            "age": 41,
+            "email": "michael.johnson@example.com"
+        },
+        {
+            "id": 4,
+            "fullname": "Emily Davis",
+            "gender": "female",
+            "age": 29,
+            "email": "emily.davis@example.com"
+        },
+        {
+            "id": 5,
+            "fullname": "David Wilson",
+            "gender": "male",
+            "age": 23,
+            "email": "david.wilson@example.com"
+        },
+        {
+            "id": 6,
+            "fullname": "Sophia Brown",
+            "gender": "female",
+            "age": 36,
+            "email": "sophia.brown@example.com"
+        },
+        {
+            "id": 7,
+            "fullname": "James Taylor",
+            "gender": "male",
+            "age": 45,
+            "email": "james.taylor@example.com"
+        },
+        {
+            "id": 8,
+            "fullname": "Olivia Lee",
+            "gender": "female",
+            "age": 32,
+            "email": "olivia.lee@example.com"
+        },
+        {
+            "id": 9,
+            "fullname": "Daniel Harris",
+            "gender": "male",
+            "age": 27,
+            "email": "daniel.harris@example.com"
+        },
+        {
+            "id": 10,
+            "fullname": "Ava Clark",
+            "gender": "female",
+            "age": 22,
+            "email": "ava.clark@example.com"
+        }
+    ]
+}

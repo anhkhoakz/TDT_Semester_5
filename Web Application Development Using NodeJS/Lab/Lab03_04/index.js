@@ -33,8 +33,15 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
+const protedtedRoutes = express.Router();
+protedtedRoutes.use(isLoggedIn);
+
 app.use("/login", loginRouter);
 // app.use(isLoggedIn);
+
+// protedtedRoutes.use("/", indexRouter);
+// protedtedRoutes.use("/products", productRouter);
+// app.use(protedtedRoutes);
 app.use("/", indexRouter);
 app.use("/products", productRouter);
 

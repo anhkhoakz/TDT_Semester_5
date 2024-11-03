@@ -1,0 +1,12 @@
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.csproj.AssemblyReference.cache
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.AdminAddClient.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.AdminAddOrder.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.AdminAddProduct.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PI_Store.AdminAddUsers.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.AdminBill.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.AdminDashboard.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.AdminMainForm.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.LoginForm.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.Properties.Resources.resources
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.csproj.GenerateResource.cache
+/Users/anhkhoakz/TDT_Semester_5/dotNet Technology/Store-Management/PiStoreManagement/obj/Debug/PiStoreManagement.csproj.CoreCompileInputs.cache

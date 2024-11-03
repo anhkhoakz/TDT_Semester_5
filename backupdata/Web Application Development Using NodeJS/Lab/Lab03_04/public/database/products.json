@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 14",
+        "price": 599,
+        "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-14-model-unselect-gallery-1-202209?wid=5120&hei=2880"
+    },
+    {
+        "id": 2,
+        "name": "iPhone 15",
+        "price": 699,
+        "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-15-model-unselect-gallery-1-202309?wid=5120&hei=2880"
+    },
+    {
+        "id": 3,
+        "name": "iPhone 16",
+        "price": 799,
+        "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-model-unselect-gallery-1-202409?wid=5120&hei=2880"
+    },
+    {
+        "id": 4,
+        "name": "okunawa",
+        "price": "121221",
+        "image": "SCR-20240918-tlqw-1729321266684.png"
+    },
+    {
+        "id": 5,
+        "name": "NIST Password Guidelines 2024",
+        "price": "1231231",
+        "image": "SCR-20240918-tlqw-1729321377828.png"
+    },
+    {
+        "id": 6,
+        "name": "Michael Reyes",
+        "price": "12312312",
+        "image": "/images/SCR-20240918-tlqw-1729321636405.png"
+    }
+]

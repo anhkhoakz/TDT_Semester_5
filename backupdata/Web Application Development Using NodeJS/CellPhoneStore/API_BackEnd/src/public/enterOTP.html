@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>OTP Form</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+            integrity="sha512-UXfikgakSZBii5lkvmDCRO+IYWQhTtwMOJ+3EmGEA+oA82kvbSskgw3OI16Jx1kINgF8aqOkYE+c9h4m6muONg=="
+            crossorigin="anonymous"
+        />
+        <style>
+            .otp-input {
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                font-size: 20px;
+                margin: 5px;
+            }
+            .form-group {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="container">
+            <h1>Enter OTP</h1>
+            <p>
+                Please enter the OTP sent to your phone number. This OTP is
+                valid for 5 minutes.
+            </p>
+            <p>Didn't receive the OTP? <a href="/resend-otp">Resend OTP</a></p>
+
+            <form id="otp-form" action="/submit-otp" method="POST">
+                <div class="form-group">
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        id="digit1"
+                        oninput="moveToNext(this, 'digit2')"
+                        autofocus
+                    />
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        id="digit2"
+                        oninput="moveToNext(this, 'digit3')"
+                    />
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        id="digit3"
+                        oninput="moveToNext(this, 'digit4')"
+                    />
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        id="digit4"
+                        oninput="moveToNext(this, 'digit5')"
+                    />
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        id="digit5"
+                        oninput="moveToNext(this, 'digit6')"
+                    />
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        id="digit6"
+                        oninput="submitForm()"
+                    />
+                </div>
+                <button type="submit" hidden>Submit</button>
+            </form>
+        </main>
+
+        <script>
+            function moveToNext(current, nextFieldID) {
+                if (current.value.length === 1) {
+                    document.getElementById(nextFieldID).focus();
+                }
+            }
+
+            function submitForm() {
+                const lastDigit = document.getElementById('digit6').value;
+                if (lastDigit.length === 1) {
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<div class="border rounded mb-3 mt-5 p-3">
+            <h4>File upload</h4>
+            <form>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="progress" style="height:5px">
+                        <div class="progress-bar bg-success" style="width:40%;height:10px"></div>
+                    </div>
+                </div>
+                <p class="small">Người dùng chỉ được upload tập tin có kích thước tối đa là 20 MB. Các tập tin thực thi (*.exe, *.msi, *.sh) không được phép upload.</p>
+                <p class="small">Khi nhấn nút upload thì</p>
+                <ul class="small">
+                    <li>Progress bar sẽ hiển thị tiến độ của quá trình upload. Ban đầu progress bar bị ẩn đi.</li>
+                    <li>Khi đang diễn ra quá trình upload thì button <strong>Upload</strong> sẽ bị disabled.</li>
+                    <li>Sau khi upload thành công thì progress bar được ẩn đi, file sẽ được hiển thị trong danh sách bên trên và button được enabled trở lại.</li>
+                </ul>
+                <button class="btn btn-success px-5">Upload</button>
+            </form>
+        </div>

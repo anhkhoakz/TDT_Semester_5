@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add Users</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+            integrity="sha512-UXfikgakSZBii5lkvmDCRO+IYWQhTtwMOJ+3EmGEA+oA82kvbSskgw3OI16Jx1kINgF8aqOkYE+c9h4m6muONg=="
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Manage Users</h1>
+            <button id="openModalButton">Add User</button>
+
+            <h2>All Users</h2>
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Modal -->
+            <dialog id="userModal">
+                <article>
+                    <header>
+                        <button aria-label="Close" class="close-modal"></button>
+                        <h2>Create New User</h2>
+                    </header>
+                    <form id="createUserForm">
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Name"
+                            required
+                        />
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Username"
+                            required
+                        />
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Email"
+                            required
+                        />
+
+                        <footer>
+                            <button type="button" class="secondary close-modal">
+                                Cancel
+                            </button>
+                            <button type="submit">Create User</button>
+                        </footer>
+                    </form>
+                </article>
+            </dialog>
+        </div>
+
+        <script>
+            const createUserForm = document.getElementById("createUserForm");
+            const usersTableBody = document.querySelector("#usersTable tbody");
+            const userModal = document.getElementById("userModal");
+            const openModalButton = document.getElementById("openModalButton");
+            const closeModalButtons = document.querySelectorAll(".close-modal");
+
+            // Load users from JSON file
+            const loadUsers = async () => {
+                try {
+                    const response = await fetch("http://localhost:3000/users");
+                    const users = await response.json();
+                    console.log(users);
+
+                    usersTableBody.innerHTML = users
+                        .map(
+                            (user) => `
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                    </tr>
+                `
+                        )
+                        .join("");
+                } catch (error) {
+                    console.error("Error loading users:", error);
+                }
+            };
+
+            // Add a new user
+            createUserForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const newUser = {
+                    name: document.getElementById("name").value,
+                    username: document.getElementById("username").value,
+                    email: document.getElementById("email").value,
+                };
+
+                try {
+                    const response = await fetch("http://localhost:3000/users");
+                    const users = await response.json();
+                    users.push(newUser);
+
+                    // Sending data to a server (server-side code required)
+                    await fetch("http://localhost:3000/users", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(newUser),
+                    });
+
+                    alert("User created successfully!");
+                    createUserForm.reset();
+                    userModal.close();
+                    loadUsers();
+                } catch (error) {
+                    console.error("Error adding user:", error);
+                }
+            });
+
+            // Show modal
+            openModalButton.addEventListener("click", () => {
+                userModal.showModal();
+            });
+
+            // Close modal
+            closeModalButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    userModal.close();
+                });
+            });
+
+            // Load users on page load
+            window.addEventListener("load", loadUsers);
+        </script>
+    </body>
+</html>

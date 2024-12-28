@@ -39,7 +39,7 @@ class AlgoTKUCEP:
         self.twu_pattern = []  # Items with TWU above CUV
         self.hui_sets = []  # List of high-utility itemsets
 
-    def run_algorithm(self, input_file: str, output_file: str, top_k: int):
+    def vrun_algorithm(self, input_file: str, output_file: str, top_k: int):
         """Run the algorithm to find top-k HUIs."""
         self.K = top_k
         MemoryLogger().reset()

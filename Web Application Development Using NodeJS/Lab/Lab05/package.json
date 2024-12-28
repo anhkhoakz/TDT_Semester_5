@@ -11,7 +11,7 @@
         "cors": "^2.8.5",
         "debug": "~4.3.7",
         "ejs": "~3.1.10",
-        "express": "~4.21.1",
+        "express": "~4.21.2",
         "express-flash": "^0.0.2",
         "express-form": "^0.6.3",
         "express-rate-limit": "^7.4.1",
